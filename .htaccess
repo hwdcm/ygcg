@@ -1,0 +1,21 @@
+<Files ~ "^.(htaccess|htpasswd)$">
+deny from all
+</Files>
+Options -Indexes
+DirectoryIndex  index.php  index.html index.php 
+RewriteEngine on
+RewriteRule ^yp.html index.php?m=yp&c=index&a=init
+RewriteRule ^yp-([a-z]+)-([0-9]+).html index.php?m=yp&c=index&a=$1&modelid=$2
+RewriteRule ^yp-list-([0-9]+)-(.*)-(.*)-([0-9]+).html   index.php?m=yp&c=index&a=lists&modelid=$1&catid=$2&page=$3
+RewriteRule ^yp-list-([0-9]+)-(.*)-(.*)-(.*)-(.*)-([0-9]+).html   index.php?m=yp&c=index&a=lists&modelid=$1&areaid=$2&catid=$3&price=$4&page=$5
+RewriteRule ^yp-list-([0-9]+)-(.*)-(.*)-(.*)-(.*)-(.*)-([0-9]+).html   index.php?m=yp&c=index&a=lists&modelid=$1&areaid=$2&catid=$3&price=$4&tid=$5&page=$6
+RewriteRule ^yp-show-([0-9]+)-([0-9]+).html index.php?m=yp&c=index&a=show&catid=$1&id=$2
+RewriteRule ^web-([0-9]+).html index.php?m=yp&c=com_index&a=init&userid=$1
+RewriteRule ^web-(.*)-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*).html index.php?m=yp&c=com_index&a=$1&modelid=$2&catid=$3&id=$4&userid=$5&page=$6
+RewriteRule ^web-(.*)-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*)-([0-9]*).html index.php?m=yp&c=com_index&a=$1&modelid=$2&catid=$3&id=$4&tid=$5&userid=$6&page=$7
+RewriteRule ^content-([0-9]+)-([0-9]+)-([0-9]+).html  index.php?m=content&c=index&a=show&catid=$1&id=$2&page=$3
+RewriteRule ^show-([0-9]+)-([0-9]+)-([0-9]+).html  index.php?m=content&c=index&a=show&catid=$1&id=$2&page=$3
+RewriteRule ^list-([0-9]+)-([0-9]+).html  index.php?m=content&c=index&a=lists&catid=$1&page=$2
+RewriteRule ^list-([0-9]+)-([a-zA-Z_]+)-([0-9]+).html  index.php?m=content&c=index&a=lists&catid=$1&city=$2&page=$3
+RewriteRule ^list-([0-9]+)-(.*)-(.*)-(.*)-(.*)-(.*)-(.*)-(.*)-([0-9]+).html   index.php?m=content&c=index&a=lists&catid=$1&$city=$2&agent=$3&bedroom=$4&pay_type_int=$5&price=$6&rent_mode=$7&zone=$8&page=$9
+RewriteRule ^list-([0-9]+)-(.*)-(.*)-(.*)-(.*)-(.*)-(.*)-(.*)-([0-9]+).html   index.php?m=content&c=index&a=lists&catid=$1&$city=$2&agent=$3&bedroom=$4&pay_type_int=$5&price=$6&sell_mode=$7&zone=$8&page=$9
